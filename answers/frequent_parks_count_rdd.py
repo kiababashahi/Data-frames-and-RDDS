@@ -12,6 +12,6 @@ sc = SparkContext(conf=conf)
 trees=sc.textFile(name).map(splitter).filter(lambda x:x)
 header=trees.first()
 trees1=trees.filter(lambda x:x!=header).map(lambda x:(x,1))
-number=trees1.reduceByKey(lambda  x,y:x+y).sortBy(lambda x:x[1],ascending= False).collect()
-for it in range(0,10):
-    print(number[it][0]+ ': '+str(number[it][1]))
+number=trees1.reduceByKey(lambda  x,y:x+y).sortBy(lambda x:x[1],ascending= False).take(10).collect()
+for it in number:
+    print(it[0]+ ': '+str(it[1]))
