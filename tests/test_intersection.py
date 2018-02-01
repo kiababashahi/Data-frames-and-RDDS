@@ -7,5 +7,6 @@ def test_intersection():
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
     code=process.wait()
+    print(process.stderr.read())
     assert(not code), "Intersection command failed"
     assert(process.stdout.read().decode("utf-8")==open("tests/intersection.txt","r").read())
