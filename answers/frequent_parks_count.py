@@ -22,7 +22,7 @@ l = sorted(park_count.items(), key=lambda x: x[1], reverse=True)
 num=0
 for y in l:
     if(num<10):
-        print(y[0] + ": ", y[1])
+        print(y[0] + ":  ", y[1])
         num+=1
     else:
         break
