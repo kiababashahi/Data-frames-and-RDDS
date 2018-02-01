@@ -6,6 +6,5 @@ def test_count_rdd():
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
     code=process.wait()
-    print(process.stderr.read())
     assert(not code), "Command failed"
     assert(process.stdout.read().decode("utf-8")=='27244\n')

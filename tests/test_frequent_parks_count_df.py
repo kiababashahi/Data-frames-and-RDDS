@@ -6,6 +6,5 @@ def test_frequent_parks_count():
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
     code=process.wait()
-    print(process.stderr.read())
     assert(not code), "Command failed"
     assert(process.stdout.read().decode("utf-8")==open("tests/frequent.txt","r").read())

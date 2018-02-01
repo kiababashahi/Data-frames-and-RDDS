@@ -6,6 +6,6 @@ def test_uniq_parks_count_rdd():
                                stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE)
     code=process.wait()
-    print(process.stderr.read())
     assert(not code), "Command failed"
+
     assert(process.stdout.read().decode("utf-8")==open("tests/list_parks_count.txt","r").read())
